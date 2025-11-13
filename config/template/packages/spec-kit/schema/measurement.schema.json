@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://fitted/spec/measurement.schema.json",
+  "type":"object",
+  "required":["height","chest","waist","hips","provenance"],
+  "properties":{
+    "height":{"type":"number","minimum":0},
+    "chest":{"type":"number","minimum":0},
+    "waist":{"type":"number","minimum":0},
+    "hips":{"type":"number","minimum":0},
+    "units":{"type":"string","enum":["cm","in"],"default":"cm"},
+    "provenance":{
+      "type":"object",
+      "required":["front","side","lidar"],
+      "properties":{
+        "front":{"type":"string","description":"ISO timestamp"},
+        "side":{"type":"string","description":"ISO timestamp"},
+        "lidar":{"type":"boolean"}
+      }
+    }
+  }
+}

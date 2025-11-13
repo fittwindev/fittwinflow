@@ -1,0 +1,53 @@
+{
+  "vars": {
+    "ring": "16 184 166",
+    "ink": "18 24 38",
+    "sub": "95 105 120",
+    "line": "226 232 240",
+    "card": "255 255 255",
+    "bg": "246 249 252",
+    "radius": "12px",
+    "shadow": "0 1px 2px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.06)"
+  },
+  "classes": {
+    "container": {
+      "max-width": "1120px",
+      "margin": "0 auto",
+      "padding": "0 1rem"
+    },
+    "grid": {
+      "display": "grid",
+      "gap": "1rem"
+    },
+    "card": {
+      "background": "rgb(var(--e-card))",
+      "border": "1px solid rgb(var(--e-line))",
+      "border-radius": "var(--e-radius)",
+      "box-shadow": "var(--e-shadow)"
+    },
+    "btn": {
+      "display": "inline-flex",
+      "align-items": "center",
+      "justify-content": "center",
+      "height": "44px",
+      "padding": "0 16px",
+      "border-radius": "10px",
+      "background": "rgb(var(--e-ring))",
+      "color": "#fff"
+    }
+  },
+  "utilities": {
+    "hero": {
+      "color": "rgb(var(--e-ink))"
+    },
+    "muted": {
+      "color": "rgb(var(--e-sub))"
+    },
+    "bg": {
+      "background": "rgb(var(--e-bg))"
+    },
+    "shadow": {
+      "box-shadow": "var(--e-shadow)"
+    }
+  }
+}

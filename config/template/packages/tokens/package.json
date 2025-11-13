@@ -1,0 +1,9 @@
+{
+  "name": "@fitted/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./colors.css": "./colors.css",
+    "./index.css": "./index.css"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@fitted/ui-shadcn",
+  "version": "0.1.0",
+  "type": "module",
+  "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19" }
+}

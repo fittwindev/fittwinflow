@@ -1,0 +1,9 @@
+{
+  "name": "@fitted/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:ios": "ns run ios --hmr",
+    "dev:android": "ns run android --hmr"
+  }
+}

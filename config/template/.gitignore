@@ -1,0 +1,9 @@
+node_modules
+pnpm-lock.yaml
+.env*
+.next
+dist
+build
+.DS_Store
+apps/mobile/platforms
+apps/desktop/src-tauri/target

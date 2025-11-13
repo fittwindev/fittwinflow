@@ -1,0 +1,8 @@
+{
+  "build": { "beforeDevCommand": "pnpm --filter @fitted/web dev", "devUrl": "http://localhost:3000", "beforeBuildCommand": "pnpm --filter @fitted/web build", "distDir": "../../apps/web/.next" },
+  "package": { "productName": "Fitted", "version": "0.1.0" },
+  "tauri": {
+    "allowlist": { "all": true },
+    "windows": [{ "title": "Fitted Desktop", "width": 1200, "height": 800 }]
+  }
+}

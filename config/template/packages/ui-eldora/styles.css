@@ -1,0 +1,18 @@
+:root{
+  --e-radius: 12px;
+  --e-shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.06);
+  --e-ring: 16 184 166; /* teal/cyan */
+  --e-ink: 18 24 38;
+  --e-sub: 95 105 120;
+  --e-line: 226 232 240;
+  --e-card: 255 255 255;
+  --e-bg: 246 249 252;
+}
+.e-container{max-width:1120px;margin:0 auto;padding:0 1rem}
+.e-grid{display:grid;gap:1rem}
+.e-card{background:rgb(var(--e-card));border:1px solid rgb(var(--e-line));border-radius:var(--e-radius);box-shadow:var(--e-shadow)}
+.e-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 16px;border-radius:10px;background:rgb(var(--e-ring));color:#fff}
+.e-btn:focus{outline:2px solid rgb(var(--e-ring));outline-offset:2px}
+.e-muted{color:rgb(var(--e-sub))}
+.e-hero{color:rgb(var(--e-ink))}
+.e-bg{background:rgb(var(--e-bg))}

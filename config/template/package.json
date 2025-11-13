@@ -1,0 +1,26 @@
+{
+  "name": "fitted-workspace",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "dev:web": "pnpm --filter @fitted/web dev",
+    "dev:mobile:ios": "cd apps/mobile && ns run ios --hmr",
+    "dev:mobile:android": "cd apps/mobile && ns run android --hmr",
+    "dev:desktop": "pnpm --filter @fitted/desktop tauri dev",
+    "generate:shadcn": "echo 'Use shadcn components in packages/ui-shadcn (preseeded)'"
+  },
+  "devDependencies": {
+    "turbo": "2.0.3",
+    "typescript": "5.6.3",
+    "eslint": "^9.14.0",
+    "prettier": "^3.3.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

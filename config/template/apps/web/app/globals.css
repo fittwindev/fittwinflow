@@ -1,0 +1,3 @@
+@import "@fitted/ui-eldora/styles.css";
+@import "@fitted/tokens/index.css";
+@tailwind base; @tailwind components; @tailwind utilities;

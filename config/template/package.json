@@ -8,8 +8,9 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "dev:web": "pnpm --filter @fitted/web dev",
-    "dev:mobile:ios": "cd apps/mobile && ns run ios --hmr",
-    "dev:mobile:android": "cd apps/mobile && ns run android --hmr",
+    "dev:mobile": "pnpm --filter @fitted/mobile start",
+    "dev:mobile:ios": "pnpm --filter @fitted/mobile ios",
+    "dev:mobile:android": "pnpm --filter @fitted/mobile android",
     "dev:desktop": "pnpm --filter @fitted/desktop tauri dev",
     "generate:shadcn": "echo 'Use shadcn components in packages/ui-shadcn (preseeded)'"
   },

@@ -6,7 +6,7 @@ Fitted is a single-shot generator that spawns a coordinated web/mobile/desktop s
 | Role | Need | What Fitted Gives |
 | --- | --- | --- |
 | Editor/Founders | Understand product vision + spec | `packages/spec-kit` contains Constitution, SPEC, AGENTS docs plus JSON schemas; each doc describes flow, policy, and persona-driven automation cues so you can justify UI copy or behavior to stakeholders. |
-| Developer | Build across platforms | `apps/web` (Next.js + Tailwind + Eldora/Tailwind plugin), `apps/mobile` (NativeScript Vue), `apps/desktop` (Tauri + Next). Shared packages (`packages/ui-shadcn`, `ui-lit`, `tokens`, `ui-eldora`, `auth`, `spec-kit`) provide primitives, tokens, and helpers you can import everywhere. |
+| Developer | Build across platforms | `apps/web` (Next.js + Tailwind + Eldora/Tailwind plugin), `apps/mobile` (Expo/React Native), `apps/desktop` (Tauri + Next). Shared packages (`packages/ui-shadcn`, `ui-native`, `ui-lit`, `tokens`, `ui-eldora`, `auth`, `spec-kit`) provide primitives, tokens, and helpers you can import everywhere. |
 | QA / Tester | Verify metrics, accessibility, spec compliance | The `spec-kit` docs enumerate flow requirements, agents, schema contracts, and measurement provenance; components log each stage, and the flow mirrors the canonical “Meet Your Digital Twin” story, so you can smoke-test the timers, permissions, LiDAR, and commerce touchpoints from end to end. |
 
 ## Project Layout
@@ -33,8 +33,11 @@ fitted/ (generated)          # Resulting workspace after running ./init.zsh
 - **Style Map**: `config/style-map.json` is the single source of truth for Eldora tokens; `init.zsh` runs a Node helper to emit both `packages/ui-eldora/styles.css` and `apps/web/tailwind.config.ts`, so updating that JSON immediately updates the palette, Eldora utilities, and Tailwind theme.
 
 ### Mobile (`apps/mobile`)
-- **Framework**: NativeScript Vue stub that mirrors the web flow; `app/App.vue` bootstraps the first page and each component (Welcome → Results) shares the main copy/timer hints.
-- **Next Steps**: Run `npx @nativescript/cli@latest create . --template @nativescript/template-blank-vue` inside `apps/mobile` once, copy the files from `./app` to the NativeScript project, and use `pnpm dev:mobile:ios`/`pnpm dev:mobile:android` to run once the NativeScript CLI scaffolds platforms.
+- **Framework**: Expo-managed React Native (TypeScript). `App.tsx` boots a stack navigator that mirrors the exact 8-step flow from the web app. Each screen reuses shared copy/staging plus countdown and LiDAR banner equivalents.
+- **Camera**: `src/hooks/useMobileCamera.ts` wraps `expo-camera` to manage permissions, preview lifecycle, and base64 capture so it aligns with the `useCamera` hook on web. `CameraPreview` renders the sensor feed with stateful overlays.
+- **Shared UI**: `packages/ui-native` provides RN-specific primitives (`Screen`, `Card`, `Button`, tokens) generated from the same Eldora palette so typography + surfaces match the web kit.
+- **Measurement client**: `src/services/measurementClient.ts` hosts a typed stub aligned with `packages/spec-kit/schema/measurement.schema.json`. Replace its TODO with the real measurement/geometry API when it’s ready.
+- **Commands**: Run `pnpm dev:mobile` (or `pnpm --filter @fitted/mobile start`) inside the generated workspace to open the Expo dev server. `pnpm android`/`pnpm ios` run native builds through Expo as usual.
 
 ### Desktop (`apps/desktop`)
 - **Framework**: Tauri wrapping `apps/web` for a native shell. `src-tauri/tauri.conf.json` points `beforeDevCommand`/`beforeBuildCommand` to the Next dev/build scripts and uses `.next` as the `distDir`.
@@ -84,7 +87,8 @@ You can cite these when a decision is challenged, and they stay bundled inside t
 
 ## Using the Stack
 - Run `pnpm dev:web` inside `fitted` for Next dev server (auto rebuilds tsconfig & tailwind picks up Eldora).
-- For mobile or desktop, follow comments in the README inside `apps/mobile` and `apps/desktop`.
+- Run `pnpm dev:mobile` to start the Expo bundler (Metro is pre-configured for pnpm workspaces).
+- For desktop, follow comments in the README inside `apps/desktop`.
 - CI is set up in `.github/workflows/ci.yml` to run `pnpm --filter @fitted/web build`.
 
 ## Summary

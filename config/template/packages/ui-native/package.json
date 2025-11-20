@@ -1,0 +1,11 @@
+{
+  "name": "@fitted/ui-native",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "peerDependencies": {
+    "react": "^18",
+    "react-native": "*"
+  }
+}

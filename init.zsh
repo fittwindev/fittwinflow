@@ -69,5 +69,5 @@ pnpm i --silent
 echo "==> Done."
 echo "NEXT STEPS:"
 echo "  1) cd ${APP_ROOT} && pnpm dev:web     # open http://localhost:3000"
-echo "  2) For mobile: cd apps/mobile && npx @nativescript/cli@latest create . --template @nativescript/template-blank-vue && pnpm -w dev:mobile:ios"
+echo "  2) For mobile: pnpm dev:mobile   # Expo dev server (Metro) inside fitted/"
 echo "  3) For desktop: ensure Rust toolchain, then pnpm dev:desktop"

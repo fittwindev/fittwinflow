@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "types": ["expo"],
+    "baseUrl": ".",
+    "paths": {
+      "@fitted/ui-native": ["../packages/ui-native/src"],
+      "@fitted/spec-kit/*": ["../packages/spec-kit/*"]
+    }
+  }
+}

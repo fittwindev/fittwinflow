@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
-import { View, StyleSheet } from "react-native";
 import { Screen, Heading, Card, MutedText, BodyText, Stack, colors } from "@fitted/ui-native";
 import type { FlowStackParamList } from "../navigation/FlowNavigator";
 import { useFlow } from "../state/FlowContext";
@@ -72,8 +71,6 @@ export default function ProcessingScreen({ navigation }: NativeStackScreenProps<
     </Screen>
   );
 }
-
-import { View, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   activeCard: {
